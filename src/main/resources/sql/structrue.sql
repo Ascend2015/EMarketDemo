@@ -89,3 +89,38 @@ CREATE TABLE `deal_category`(
   UNIQUE KEY `deal_category_url_name_UNIQUE` (`url_name`),
   UNIQUE KEY `deal_category_name_UNIQUE` (`name`)
 )ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `area`;
+CREATE TABLE `area` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(32) NOT NULL COMMENT '名称',
+  `parent_id` BIGINT(20) NOT NULL ,
+  `common` INT(4) NOT NULL ,
+  `type` VARCHAR(16) NOT NULL COMMENT '类型：省，市',
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `area_name_UNIQUE` (`name`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `image_info`;
+CREATE TABLE `image_info` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `width` INT(4) DEFAULT NULL COMMENT '图片宽度',
+  `height` INT(4) DEFAULT NULL COMMENT '图片高度',
+  `source_path` VARCHAR(100) DEFAULT NULL COMMENT '图片源路径',
+  PRIMARY KEY (`id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT(20) NOT NULL ,
+  `deal_id` BIGINT(20) NOT NULL ,
+  `deal_sku_id` BIGINT(20) NOT NULL ,
+  `count` INT(4) NOT NULL ,
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `cart_user_id` (`user_id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
