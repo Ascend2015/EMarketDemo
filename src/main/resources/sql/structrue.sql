@@ -82,5 +82,10 @@ CREATE TABLE `deal_category`(
   `name` VARCHAR(100) NOT NULL COMMENT '名称',
   `url_name` VARCHAR(32) NOT NULL COMMENT '分类URL',
   `publish_status` INT(2) NOT NULL COMMENT '发布状态',
-  ``
-)
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `order_num` INT(10) UNSIGNED NOT NULL COMMENT '排序号码',
+  `deep` INT(10) UNSIGNED NOT NULL COMMENT '层次深度',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `deal_category_url_name_UNIQUE` (`url_name`),
+  UNIQUE KEY `deal_category_name_UNIQUE` (`name`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
