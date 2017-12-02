@@ -39,7 +39,7 @@ CREATE TABLE `deal`(
   `sku_id` BIGINT(20) NOT NULL COMMENT '商品ID',
   `deal_class` INT(2)NOT NULL COMMENT '商品类型',
   `merchant_id` BIGINT(20) NOT NULL COMMENT '厂商ID',
-  'merchant_sku' BIGINT(20) NOT NULL ,
+  `merchant_sku` BIGINT(20) NOT NULL ,
   `deal_title` VARCHAR(200) NOT NULL COMMENT '商品标题',
   `deal_price` DECIMAL(10,0)NOT NULL COMMENT '商品价格',
   `market_price`DECIMAL(10,0) NOT NULL COMMENT '市场价',
@@ -56,7 +56,7 @@ CREATE TABLE `deal`(
   `vendibility_amount` INT(4) NOT NULL COMMENT '商品可售数量',
   `oos_status` INT(2) NOT NULL COMMENT '售空标识',
   `start_time` DATETIME NOT NULL COMMENT '销售开始时间',
-  `end_time` DATETIME NOT NULL COMMENT '销售结束时间',
+  `end_time` DATETIME DEFAULT NULL COMMENT '销售结束时间',
   `publish_time` DATETIME DEFAULT NULL COMMENT '发布时间',
   `merchant_code` VARCHAR(15) DEFAULT NULL COMMENT '商家编码',
   `create_time` DATETIME NOT NULL COMMENT '创建时间',
@@ -123,4 +123,81 @@ CREATE TABLE `cart` (
   `update_time` DATETIME NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `cart_user_id` (`user_id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `order_detail`;
+CREATE TABLE `order_detail`(
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `order_id` BIGINT(20) NOT NULL COMMENT '订单ID',
+  `user_id` BIGINT(20) NOT NULL COMMENT '用户ID',
+  `merchant_sku` INT(20) DEFAULT NULL COMMENT '商家商品SKU',
+  `merchant_id` BIGINT(20) DEFAULT NULL COMMENT '商家ID',
+  `merchant_code` VARCHAR(32)DEFAULT NULL COMMENT '商家编码',
+  `deal_id` BIGINT(20) NOT NULL COMMENT '商品ID',
+  `deal_sku_id` BIGINT(20)NOT NULL ,
+  `deal_img_id`BIGINT(20) NOT NULL ,
+  `deal_title`VARCHAR(200) NOT NULL COMMENT 'deal名称',
+  `deal_count` INT(11)NOT NULL COMMENT 'deal数量',
+  `deal_price` INT(11) NOT NULL COMMENT 'deal单价',
+  `total_price` INT(11)NOT NULL COMMENT 'deal总价',
+  `settlement_price` INT(11) NOT NULL ,
+  `total_settlement_price` INT(11) NOT NULL ,
+  `detail_status` INT(11) NOT NULL COMMENT '详情状态',
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `detail_user_id_INDEX` (`user_id`),
+  KEY `detail_order_id_INDEX` (`order_id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `user_basic_info`;
+CREATE TABLE `user_basic_info`(
+  `id` INT(10) NOT NULL ,
+  `nickname` VARCHAR(32) NOT NULL ,
+  `realname` VARCHAR(32) NOT NULL ,
+  `matl` VARCHAR(32) NOT NULL ,
+  `phone` VARCHAR(32) NOT NULL ,
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address`(
+  `id` INT(20) NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT(20)NOT NULL ,
+  `receiver` VARCHAR(64) NOT NULL ,
+  `area` VARCHAR(256) NOT NULL ,
+  `detail` VARCHAR(256) NOT NULL ,
+  `type` VARCHAR(8) NOT NULL ,
+  `phone` VARCHAR(16) NOT NULL ,
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `INDEX_USER_ID` (`user_id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `favorite`;
+CREATE TABLE `favorite` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT(20) NOT NULL ,
+  `deal_id` BIGINT(20) NOT NULL ,
+  `deal_sku_id` BIGINT(20) NOT NULL ,
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `favorite_user_deal_id` (`user_id`,`deal_id`)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT(20) NOT NULL ,
+  `title` VARCHAR(64) NOT NULL ,
+  `content` VARCHAR(256) NOT NULL ,
+  `readed` VARCHAR(4) NOT NULL ,
+  `create_time` DATETIME NOT NULL COMMENT '创建时间',
+  `update_time` DATETIME NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `message_user_INDEX` (`user_id`)
 )ENGINE =InnoDB DEFAULT CHARSET =utf8;

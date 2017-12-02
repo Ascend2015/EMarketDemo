@@ -3,10 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.tj212.edu</groupId>
   <artifactId>EMarketDemo</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>EMarketDemo Maven Webapp</name>
+  <name>${project.artifactId}</name>
   <url>http://maven.apache.org</url>
+
+  <modules>
+    <module>Admin</module>
+    <module>Service</module>
+      <module>ImageServer</module>
+  </modules>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

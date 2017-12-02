@@ -2,15 +2,34 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile name="Annotation profile for EMarketDemo Maven Webapp" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EMarketDemo (1)" />
+      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="EMarketDemo" />
+        <module name="Controller" />
+        <module name="controller" />
+        <module name="EMarketDemo (2)" />
+        <module name="ImageServer" />
+        <module name="Service" />
+        <module name="Web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Admin" target="1.5" />
+      <module name="controller" target="1.5" />
+      <module name="Controller" target="1.5" />
       <module name="EMarketDemo" target="1.5" />
+      <module name="EMarketDemo (1)" target="1.5" />
+      <module name="EMarketDemo (2)" target="1.5" />
+      <module name="ImageServer" target="1.5" />
+      <module name="Service" target="1.5" />
+      <module name="Web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
