@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Annotation profile for EMarketDemo Maven Webapp" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />
         <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
@@ -12,24 +13,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Alipay" />
         <module name="Controller" />
         <module name="controller" />
+        <module name="Controller (1)" />
         <module name="EMarketDemo (2)" />
+        <module name="EMarketDemo-site-controller" />
+        <module name="EMarketDemo-site-web" />
         <module name="ImageServer" />
         <module name="Service" />
         <module name="Web" />
+        <module name="Web (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Admin" target="1.5" />
+      <module name="Alipay" target="1.5" />
       <module name="controller" target="1.5" />
       <module name="Controller" target="1.5" />
+      <module name="Controller (1)" target="1.5" />
       <module name="EMarketDemo" target="1.5" />
       <module name="EMarketDemo (1)" target="1.5" />
       <module name="EMarketDemo (2)" target="1.5" />
+      <module name="EMarketDemo-site-controller" target="1.5" />
+      <module name="EMarketDemo-site-web" target="1.5" />
       <module name="ImageServer" target="1.5" />
       <module name="Service" target="1.5" />
+      <module name="Site" target="1.5" />
       <module name="Web" target="1.5" />
+      <module name="Web (1)" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

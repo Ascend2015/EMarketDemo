@@ -3,10 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Admin/Admin.iml" filepath="$PROJECT_DIR$/Admin/Admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Alipay/Alipay.iml" filepath="$PROJECT_DIR$/Alipay/Alipay.iml" />
       <module fileurl="file://$PROJECT_DIR$/Admin/Controller/Controller.iml" filepath="$PROJECT_DIR$/Admin/Controller/Controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/EMarketDemo.iml" filepath="$PROJECT_DIR$/EMarketDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Site/Controller/EMarketDemo-site-controller.iml" filepath="$PROJECT_DIR$/Site/Controller/EMarketDemo-site-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Site/Web/EMarketDemo-site-web.iml" filepath="$PROJECT_DIR$/Site/Web/EMarketDemo-site-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageServer/ImageServer.iml" filepath="$PROJECT_DIR$/ImageServer/ImageServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Service/Service.iml" filepath="$PROJECT_DIR$/Service/Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Site/Site.iml" filepath="$PROJECT_DIR$/Site/Site.iml" />
       <module fileurl="file://$PROJECT_DIR$/Admin/Web/Web.iml" filepath="$PROJECT_DIR$/Admin/Web/Web.iml" />
     </modules>
   </component>
